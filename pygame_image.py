@@ -22,13 +22,18 @@ def main():
         kk_rct.move_ip((-1,0))
         key_lst = pg.key.get_pressed()  # 練習8-3：キーの押下状態を取得
         if key_lst[pg.K_UP]:  # 上矢印キーがTrueなら
-            kk_rct.move_ip((0, -1))  # こうかとんの縦座標を-1する
-        if key_lst[pg.K_DOWN]:  # 下矢印キーがTrueなら
-            kk_rct.move_ip((0, +1))  # こうかとんの縦座標を+1する
-        if key_lst[pg.K_LEFT]:  # 下矢印キーがTrueなら
-            kk_rct.move_ip((-1, 0))  # こうかとんの横座標を-1する
-        if key_lst[pg.K_RIGHT]:  # 下矢印キーがTrueなら
-            kk_rct.move_ip((+2, 0))  # こうかとんの横座標を+1する
+            y=-1
+        elif key_lst[pg.K_DOWN]:
+            y =+1
+        else:
+            y =0
+        if key_lst[pg.K_LEFT]:
+            x=-1
+        elif key_lst[pg.K_RIGHT]:
+            x=+2
+        else:
+            x=0
+        kk_rct.move_ip((x,y))
 
         x = -(tmr%3200)
         screen.blit(bg_img, [x, 0])
