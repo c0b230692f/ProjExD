@@ -12,6 +12,7 @@ def main():
     bg_img = pg.image.load("fig/pg_bg.jpg")
     kouka = pg.image.load("fig/3.png")
     kouka = pg.transform.flip(kouka,True,False)
+    kouka_rect = kouka.get_rect()
     tmr = 0
     while True:
         for event in pg.event.get():
@@ -20,6 +21,8 @@ def main():
         x = -(tmr%1600)
         screen.blit(bg_img, [x, 0])
         screen.blit(bg_img,[x+1600,0])
+        screen.blit(bg_img,[x+3200,0])
+        screen.blit(bg_img,[x+4800,0])
         screen.blit(kouka,[300,200])
         pg.display.update()
         tmr += 1        
